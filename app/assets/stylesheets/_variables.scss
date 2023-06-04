@@ -1,0 +1,54 @@
+/* FONTS */
+@font-face {
+  font-family: "RobotoCondensed-Regular";
+  font-style: normal;
+  font-weight: 300;
+  src: url("RobotoCondensed-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Light";
+  src: url("RobotoCondensed-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "RobotoCondensed-Bold";
+  src: url("RobotoCondensed-Bold.ttf") format("truetype");
+}
+
+/* COLORS */
+$white: #fff !default;
+$gray-100: #e6e6e6 !default;
+$gray-200: #cccccc !default;
+$gray-300: #b3b3b3 !default;
+$gray-400: #999999 !default;
+$gray-500: #808080 !default;
+$gray-600: #666666 !default;
+$gray-700: #4d4d4d !default;
+$gray-800: #333333 !default;
+$gray-900: #1a1a1a !default;
+$black: #000 !default;
+
+$blue: #0064a3 !default;
+$light-blue: #d0edff !default;
+$indigo: #4b49ac !default;
+$purple: #e638b1 !default;
+$pink: #fc58ff !default;
+$male_blue: #0080ff !default;
+$red: #ff3431 !default;
+$orange: #ff803b !default;
+$yellow: #f2e20f !default;
+$green: #14ac17 !default;
+$teal: #00d1a5 !default;
+$cyan: #00bcc7 !default;
+$panna: #fcf8f8 !default;
+$orange-light: #ffe8d1 !default;
+$green-light: #d1ffd5 !default;
+
+$primary: $blue !default;
+$success: $green !default;
+$info: $purple !default;
+$warning: $orange !default;
+$danger: $red !default;
+$light: $gray-400 !default;
+$dark: $black !default;

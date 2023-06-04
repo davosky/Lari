@@ -1,0 +1,140 @@
+html {
+  font-family: "RobotoCondensed-Regular";
+}
+/* DOM */
+body {
+  font-family: "RobotoCondensed-Regular";
+  font-weight: 500;
+  font-size: 12pt;
+  color: $primary;
+  background-color: $panna;
+  padding-top: 5.6rem;
+}
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.hr-primary {
+  border-top: 0.2rem solid $primary;
+  margin: 1rem 0;
+  padding: 0;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-female {
+  color: $pink;
+}
+.text-male {
+  color: $male-blue;
+}
+.text-transgender {
+  color: $green;
+}
+/* BUTTONS */
+.btn {
+  font-family: "RobotoCondensed-Regular";
+  font-weight: 500;
+  font-size: 12pt;
+
+  .btn-light {
+    font-family: "RobotoCondensed-Regular";
+    font-weight: 600;
+    font-size: 12pt;
+    color: $red;
+    border: solid $red 0.6rem;
+    background-color: $white;
+
+    &:hover {
+      background-color: $red;
+      color: $primary;
+    }
+  }
+}
+/* NAVBAR */
+.navbar-nav {
+  .nav-item {
+    .nav-link {
+      color: #fff;
+
+      &:hover {
+        background-color: #fff;
+        color: $primary;
+        border-radius: 0.3rem;
+      }
+    }
+  }
+}
+.dropdown-menu {
+  background-color: $primary;
+  color: $white;
+  border-color: $white;
+  padding: 0.6rem;
+}
+.dropdown-item {
+  font-weight: 300;
+  font-size: 12pt;
+  color: $white;
+
+  &:hover {
+    color: $primary;
+    background-color: $white;
+    border-radius: 0.3rem;
+  }
+}
+/* FORMS */
+.form-control {
+  font-family: "RobotoCondensed-Regular";
+  font-weight: 500;
+  font-size: 12pt;
+  border-color: $primary;
+}
+.form-select {
+  font-family: "RobotoCondensed-Regular";
+  font-weight: 500;
+  font-size: 12pt;
+  border-color: $primary;
+}
+.input-group-text {
+  background-color: $primary;
+  color: $white;
+  border-color: $primary;
+}
+.input-group-text-fixed {
+  min-width: 14rem;
+  background-color: $primary;
+  color: $white;
+}
+/* TABLES */
+table {
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  border-radius: 0.9rem;
+}
+.tr-unprocessed {
+  background-color: $orange-light;
+}
+.tr-processed {
+  background-color: $green-light;
+}
+.tr-regular {
+  background-color: $white;
+}
+/* CARDS */
+.card {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+}
+.card-body-animated {
+  &:hover {
+    background-color: $light-blue;
+  }
+}
+/* LISTS */
+.list-group .list-group-item {
+  color: $primary;
+}

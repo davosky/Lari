@@ -1,0 +1,105 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
+  <div class="container-fluid">
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag('navbar_logo.svg', class: 'img-fluid') %>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item p-1">
+          <%= link_to subscribers_path, class: "nav-link" do %>
+            <i class="fa-solid fa-user-pen"></i>
+            &nbsp;
+            Sottoscrittori
+          <% end %>
+        </li>
+        <li class="nav-item p-1">
+          <%= link_to landlords_path, class: "nav-link" do %>
+            <i class="fa-solid fa-user-tie"></i>
+            &nbsp;
+            Locatori
+          <% end %>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown p-1">
+          <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-cog"></i>
+            &nbsp;
+            Accessori
+          </a>
+          <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
+            <%= link_to occupations_path, class: "dropdown-item" do %>
+              <i class="fa-solid fa-person-digging"></i>
+              &nbsp;
+              Occupazioni
+            <% end %>
+            <%= link_to subscription_reasons_path, class: "dropdown-item" do %>
+              <i class="fa-solid fa-file-circle-question"></i>
+              &nbsp;
+              Motivi Sottoscrizione
+            <% end %>
+            <%= link_to private_sectors_path, class: "dropdown-item" do %>
+              <i class="fa-regular fa-building"></i>
+              &nbsp;
+              Settori Privati
+            <% end %>
+            <%= link_to public_sectors_path, class: "dropdown-item" do %>
+              <i class="fa-solid fa-building"></i>
+              &nbsp;
+              Settori Publici
+            <% end %>
+            <%= link_to categories_path, class: "dropdown-item" do %>
+              <i class="fa-solid fa-square"></i>
+              &nbsp;
+              Categorie
+            <% end %>
+            <%= link_to delivery_cards_path, class: "dropdown-item" do %>
+              <i class="fa-solid fa-address-card"></i>
+              &nbsp;
+              Tipologie Consegna
+            <% end %>
+            <%= link_to subscription_types_path, class: "dropdown-item" do %>
+              <i class="fa-solid fa-file-signature"></i>
+              &nbsp;
+              Tipi Sottoscrizione
+            <% end %>
+          </ul>
+        </li>
+        <li class="nav-item p-1">
+          <%= link_to edit_operator_registration_path, class: "nav-link" do %>
+            <%= full_operator %>
+            &emsp;
+          <% end %>
+        </li>
+        <li class="nav-item dropstart p-1">
+          <a class="nav-link dropdown" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+          </a>
+          <ul class="dropdown-menu shadow" aria-labelledby="navbarDropdown">
+            <%= link_to home_credits_path, class: "dropdown-item" do %>
+              <i class="fa-solid fa-user-astronaut"></i>
+              &nbsp;
+              Crediti
+            <% end %>
+            <% if admin? %>
+              <%= link_to rails_admin_path, class: 'dropdown-item'  do %>
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                &nbsp;
+                Amministrazione
+              <% end %>
+              <br/>
+            <% end %>
+            <%= link_to destroy_operator_session_path, method: :get, class: "dropdown-item" do %>
+              <i class="fa-solid fa-door-open"></i>
+              &nbsp;
+              Esci
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

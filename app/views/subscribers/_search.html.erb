@@ -1,0 +1,43 @@
+<%= search_form_for @q, class: 'd-flex flex-row align-items-center flex-wrap' do |form| %>
+  <div class='row'>
+    <div class='col'>
+      <div class='input-group'>
+        <div class="input-group m-1">
+          <div class="input-group-text">
+            <i class="fa-regular fa-user"></i>
+            &nbsp;<span>Cognome</span>
+          </div>
+          <%= form.text_field :last_name_cont, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group m-1">
+        <div class="input-group-text">
+          <i class="fa-solid fa-user"></i>
+          &nbsp;<span>Nome</span>
+        </div>
+        <%= form.text_field :first_name_cont, class: "form-control" %>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group m-1">
+        <div class="input-group-text">
+          <i class="fa-solid fa-id-card"></i>
+          &nbsp;<span>CF</span>
+        </div>
+        <%= form.text_field :fiscal_code_cont, class: "form-control" %>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group m-1">
+        <div class="input-group-text">
+          <i class="fa-solid fa-calendar-day"></i>
+          &nbsp;<span>Data Nascita</span>
+        </div>
+        <%= form.date_field :birth_date_cont, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

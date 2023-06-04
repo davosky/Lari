@@ -1,0 +1,31 @@
+.bg-login-image {
+  background: url(main_logo.svg);
+  background-position: center;
+
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+form.user {
+  .custom-checkbox.small {
+    label {
+      line-height: 1.5rem;
+    }
+  }
+
+  .form-control-user {
+    font-weight: 600;
+    font-size: 18pt;
+    border-radius: 10rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .btn-user {
+    font-size: 18pt;
+    padding: 0.75rem 1rem;
+  }
+
+  .rounded-border {
+    border-radius: 1rem;
+  }
+}

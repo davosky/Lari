@@ -1,0 +1,70 @@
+<div class="col">
+  <p class="mb-3">
+    <%= image_tag("subscriber_index_logo.svg", class: "img-fluid") %>
+    <span class="float-end">
+      <span class="float-right">
+        <%= link_to new_subscriber_path, "data-controller": "turbo", class: "btn btn-lg btn-primary shadow" do %>
+          <i class="fa-solid fa-user-pen"></i>
+          &nbsp;
+          <i class="fa-solid fa-plus"></i>
+          &nbsp;
+          Inserisci una Nuova Sottoscrizione
+        <% end %>
+      </span>
+    </span>
+  </p>
+  <br/>
+  <!-- SEARCH -->
+  <%= render "search" %>
+  <hr class="hr-primary"/>
+  <% @subscribers.each do |subscriber| %>
+    <div class="card m-2 shadow border-light">
+      <div class="card-body card-body-animated">
+        <%= link_to subscriber_path(subscriber), "data-controller": "turbo" do %>
+          <i class="fa-solid fa-eye"></i>
+        <% end %>
+        &emsp;
+        <%= link_to subscriber_path(subscriber, request.parameters.merge(format: "pdf")), target: :_blank do %>
+          <i class="fa-solid fa-print"></i>
+        <% end %>
+        &emsp;
+        <%= subscriber.code %>
+        &emsp;
+        <span class="text-dark">
+          <%= subscriber.first_name %>
+        </span>
+        &emsp;
+        <span class="text-dark">
+          <%= subscriber.last_name %>
+        </span>
+        &emsp;
+        <%= subscriber.fiscal_code %>
+        &emsp;
+        |
+        &emsp;
+        <%= subscriber.zip %>
+        &nbsp;
+        <%= subscriber.city %>
+        <span class="float-end">
+          <%= link_to edit_subscriber_path(subscriber), "data-controller": "turbo" , 
+            "data-bs-toggle": "tooltip", 
+            "title": "Modifica il Record Corrente" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
+          &emsp;
+          <%= link_to subscriber_path(subscriber),
+            "data-turbo-method": :delete,
+            "data-turbo-confirm": "Sicuri di voler eliminare il record corrente?" , 
+            "data-bs-toggle": "tooltip", 
+            "title": "Elimina il Record Corrente" do%>
+            <i class="fa-solid fa-trash"></i>
+          <% end %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="row">
+  <br>
+  <%= paginate @subscribers %>
+</div>

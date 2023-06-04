@@ -1,0 +1,28 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+  <div class="modal fade" data-controller="modal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header mb-5">
+          <div class="modal-title">
+            <%= image_tag("private_sector_index_logo.svg", class: "img-fluid") %>
+          </div>
+          <a class="btn btn-light modal-header-link" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </a>
+        </div>
+        <div class="modal-body mb-5">
+          <div class="col-10 offset-1">
+            <div id="<%= dom_id @private_sector %>" class="scaffold_record">
+              <h3 class="text-primary">
+                <%= @private_sector.name %>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<% end %>

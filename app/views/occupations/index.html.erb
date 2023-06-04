@@ -1,0 +1,44 @@
+<div class="col">
+  <p class="mb-3">
+    <%= image_tag("occupation_index_logo.svg", class: "img-fluid") %>
+    <span class="float-end">
+      <span class="float-right">
+        <%= link_to new_occupation_path, "data-controller": "turbo", class: "btn btn-sm btn-primary shadow" do %>
+          <i class="fa-solid fa-person-digging"></i>
+          &nbsp;
+          <i class="fa-solid fa-plus"></i>
+          &nbsp;
+          Inserisci una Nuova Occupazione
+        <% end %>
+      </span>
+    </p>
+    <hr class="hr-primary"/>
+    <% @occupations.each do |occupation| %>
+      <div class="card m-2 shadow border-light">
+        <div class="card-body card-body-animated">
+          <%= occupation.position %>
+          &emsp;
+          <%= occupation.name %>
+          <span class="float-end">
+            <%= link_to edit_occupation_path(occupation), "data-controller": "turbo" , 
+            "data-bs-toggle": "tooltip", 
+            "title": "Modifica il Record Corrente" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            &emsp;
+            <%= link_to occupation_path(occupation),
+            "data-turbo-method": :delete,
+            "data-turbo-confirm": "Sicuri di voler eliminare il record corrente?" , 
+            "data-bs-toggle": "tooltip", 
+            "title": "Elimina il Record Corrente" do%>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <br>
+    <%= paginate @occupations %>
+  </div>

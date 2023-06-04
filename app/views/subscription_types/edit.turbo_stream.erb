@@ -1,0 +1,3 @@
+<%= turbo_stream.replace "remote_modal" do %>
+  <%= render partial: "subscription_types/form_modal", locals: { subscription_type: @subscription_type } %>
+<% end %>

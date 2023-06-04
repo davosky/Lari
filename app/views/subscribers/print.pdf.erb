@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64('print.scss') %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <%= inline_svg('pdf_sunia_logo.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          <hr/>
+          <br/>
+          <br/>
+          <span class='span-left'>
+            data sottoscrizione:
+            &emsp;
+            <strong>
+              <%= l(@subscriber.subscription_date) %>
+            </strong>
+            &emsp;
+            numero ricevuta:
+            &emsp;
+            <strong>
+              <%= @subscriber.id %>
+            </strong>
+          </span>
+          <span class='span-right'>
+            codice sottoscrittore:
+            &emsp;
+            <strong>
+              <%= @subscriber.code %>
+            </strong>
+          </span>
+          <br/>
+          &emsp;
+          <br/>
+          &emsp;
+          <!-- TABLE -->
+          <table class="pdf">
+            <tbody>
+              <tr>
+                <td>Nome:</td>
+                <td><strong><%= @subscriber.first_name %></strong></td>
+                <td>Cognome:</td>
+                <td><strong><%= @subscriber.last_name %></strong></td>
+              </tr>
+              <tr>
+                <td>Codice Fiscale:</td>
+                <td><strong><%= @subscriber.fiscal_code %></strong></td>
+                <td>Sesso:</td>
+                <td><strong><%= @subscriber.sex.name %></strong></td>
+              </tr>
+              <tr>
+                <td>Data di Nascita:</td>
+                <td><strong><%= l(@subscriber.birth_date) %></strong></td>
+                <td>Luogo di Nascita:</td>
+                <td><strong><%= @subscriber.birth_place %></strong></td>
+              </tr>
+              <tr>
+                <td>Nazionalit&agrave;:</td>
+                <td><strong><%= @subscriber.nationality %></strong></td>
+                <td>Cittadinanza:</td>
+                <td><strong><%= @subscriber.citizenship %></strong></td>
+              </tr>
+            </tr>
+            <tr>
+              <td>Indirizzo:</td>
+              <td><strong><%= @subscriber.address %></strong></td>
+              <td>Civico:</td>
+              <td><strong><%= @subscriber.house_number %></strong></td>
+            </tr>
+            <tr>
+              <td>C.A.P.:</td>
+              <td><strong><%= @subscriber.zip %></strong></td>
+              <td>Comune:</td>
+              <td><strong><%= @subscriber.city %></strong></td>
+            </tr>
+            <tr>
+              <td>Provincia:</td>
+              <td><strong><%= @subscriber.province %></strong></td>
+            </tr>
+          </tr>
+          <tr>
+            <td>Telefono:</td>
+            <td><strong><%= @subscriber.phone %></strong></td>
+            <td>Cellulare:</td>
+            <td><strong><%= @subscriber.mobile %></strong></td>
+          </tr>
+          <tr>
+            <td>E-Mail:</td>
+            <td><strong><%= @subscriber.email %></strong></td>
+          </tr>
+        </tr>
+        <tr>
+          <td>Occupazione:</td>
+          <td><strong><%= @subscriber.occupation.name if @subscriber.occupation_id.present? %></strong></td>
+          <td>Categoria:</td>
+          <td><strong><%= @subscriber.category.name if @subscriber.category_id.present? %></strong></td>
+        </tr>
+        <tr>
+          <td>Motivo Sottoscrizione:</td>
+          <td><strong><%= @subscriber.subscription_reason.name if @subscriber.subscription_reason_id.present? %></strong></td>
+          <td>Tipo Sottoscrizione:</td>
+          <td><strong><%= @subscriber.subscription_type.name if @subscriber.subscription_type_id.present? %></strong></td>
+          <td>Tessera Consegnata:</td>
+          <td><strong><%= @subscriber.delivery_card.name if @subscriber.delivery_card_id.present? %></strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <br/>
+    <span class='span-right'>
+      Ha versaro alla Categoria:
+      &emsp;
+      <strong></strong>
+      &emsp;
+      <strong>
+        <%= @subscriber.amount %>
+        &nbsp;
+        &euro;
+      </strong>
+    </span>
+  </div>
+</div>
+<br/>
+<hr/>
+<br/>
+<div class='row'>
+  <div class='col'>
+    1. Io sottoscritto, letta l’informativa che precede e consapevole che il trattamento dei dati in ambito sindacale non richiede il consenso,
+    <br/>
+    <br/>
+    presto il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_first.name == "NO" %>
+      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% else %>
+      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% end %>
+    &emsp;&emsp;
+    nego il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_first.name == "SI" %>
+      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% else %>
+      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% end %>
+    <br/>
+    <br/>
+    alla comunicazione dei miei dati comuni e particolari ai soggetti indicati nell’informativa (datore di lavoro, enti previdenziali ed assistenziali, enti bilaterali, enti paritetici contrattuali) nei limiti in cui la
+    comunicazione sia essenziale per l’adempimento degli scopi statutari o degli obblighi legali.
+    <br/>
+    <br/>
+    2. In relazione alla predetta informativa, prendendo atto che la prestazione del consenso per attività estranee alla tutela del lavoratore o del pensionato non è obbligatoria e che, in caso di rifiuto,
+    non riceverei alcun pregiudizio,
+    <br/>
+    <br/>
+    presto il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_second.name == "NO" %>
+      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% else %>
+      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% end %>
+    &emsp;&emsp;
+    nego il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_second.name == "SI" %>
+      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% else %>
+      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% end %>
+    <br/>
+    <br/>
+    al trattamento dei miei dati per comunicazione sindacale da parte del sindacato e dei contitolari del trattamento per finalità più ampiamente indicate nell’informativa, anche a mezzo di strumenti tecnologici
+    avanzati quali fax, Email, SMS, MMS.
+    <br/>
+    <br/>
+    3. Nella consapevolezza che la prestazione del consenso alla comunicazione dei dati per attività estranee alla tutela sindacale, se pur previste dallo Statuto, non è
+    obbligatoria e che, in caso di rifiuto, non riceverei alcun pregiudizio,
+    <br/>
+    <br/>
+    presto il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_third.name == "NO" %>
+      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% else %>
+      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% end %>
+    &emsp;&emsp;
+    nego il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_third.name == "SI" %>
+      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% else %>
+      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+    <% end %>
+    <br/>
+    <br/>
+    alla comunicazione e al successivo trattamento dei miei dati personali comuni e particolari al Patronato Inca, ai CAAF CGIL SRL costituiti dalla CGIL, al Sunia, all’Auser e alla Federconsumatori e, comunque,
+    agli enti e alle persone giuridiche con o senza scopo di lucro delle quali si avvale l’associazione sindacale per il perseguimento dei propri scopi statutari o, comunque, con essa convenzionate o affiliate, o da
+    essa costituiti e/o promossi, affinché tali soggetti possano erogare servizi di tutela in qualsiasi ambito lavorativo, fiscale, contabile, previdenziale, assistenziale e consumeristico e trattare tali dati per
+    informarmi sui loro servizi di assistenza e tutela a mezzo posta cartacea e di strumenti tecnologici avanzati quali fax, SMS, MMS e Email.
+    <br/>
+    <br/>
+    <br/>
+    <small>
+      Sottoscrizione raccolta da:
+      &nbsp;
+      <%= @subscriber.operator.institute %>
+      &nbsp;
+      <%= @subscriber.operator.office %>
+      &nbsp;
+      operatore:
+      <%= @subscriber.operator.first_name %>
+      &nbsp;
+      <%= @subscriber.operator.last_name %>
+    </small>
+    <br/>
+    <br/>
+    <br/>
+    <span class='span-right'>
+      Firma del sottoscrittore:
+      &emsp;
+      _________________________________
+    </span>
+    <p style="page-break-after: always;">&nbsp;</p>
+    <p style="page-break-before: always;">&nbsp;</p>
+    Titolare del trattamento, Contitolari, Responsabile della Protezione dei Dati.
+    Confederazione Generale Italiana del Lavoro con sede a Roma in Corso Italia n. 25 (PEC: organizzazione@pec.cgil.it): è il titolare del trattamento dei dati degli iscritti e dei soggetti coi quali ha contatti regolari.
+    Le singole associazioni sindacali CGIL (CGIL regionali, Camere del lavoro, Federazioni o categorie nazionali, regionali e territoriale) sono contitolari del trattamento. I loro riferimenti e dati di contatto sono
+    reperibili sul sito www.cgil.it/sedi/ Tali contitolari hanno stipulato tra loro un accordo di contitolarità il cui estratto è reperibile nella sezione privacy del sito www.cgil.it/contitolarita. il Responsabile per la
+    Protezione dei Dati potrà essere contattato all’indirizzo privacy@cgil.it
+    Finalità e basi giuridiche del trattamento.
+    I dati verranno acquisiti dall’interessato al momento della richiesta di iscrizione e/o, comunque, al primo contatto. I dati potranno essere acquisiti anche nel corso dei successivi contatti, anche da parte dei
+    Suoi familiari, del datore di lavoro e/o dell’ente previdenziale e/o assistenziale. I dati verranno raccolti e trattati:
+    <br/>
+    <br/>
+    <strong>a)</strong> per adempiere agli obblighi sindacali e, comunque, nell’ambito dell’attività sindacale per il perseguimento delle finalità statutarie, quindi sulla base della necessità di adempiere agli obblighi e alle
+    prerogative statuarie, con le garanzie previste dal sindacato e pubblicate nella sezione privacy del sito www.cgil.it. Laddove il trattamento comporti la comunicazione dei dati, gli stessi verranno comunicati
+    solo previo consenso dell’iscritto;
+    <br/>
+    <br/>
+    <strong>b)</strong> per adempiere ad obblighi legali, quindi sulla base della necessità di adempiere agli obblighi di legge o per motivi di interesse pubblico rilevante;
+    <br/>
+    <br/>
+    <strong>c)</strong> per consentire l’erogazione di altri servizi connessi alla tutela della persona in ambito lavorativo, fiscale, contabile, previdenziale, assistenziale e consumeristico, quindi sulla base della necessità di
+    adempiere agli obblighi e alle prerogative statuarie, con le garanzie previste dal sindacato e pubblicate nella sezione privacy del sito www.cgil.it oppure, laddove tali servizi vengano forniti da soggetti terzi,
+    sulla base del consenso;
+    <br/>
+    <br/>
+    <strong>d)</strong> per inviare comunicazioni istituzionali sulla propria attività e su quella degli enti, con o senza scopo di lucro, istituiti, costituiti o promossi dal sindacato per il perseguito delle medesime finalità, quindi sulla
+    base del consenso espresso dall’interessato;
+    <br/>
+    <br/>
+    <strong>e)</strong> per svolgere ricerche di natura statistica (solo con dati anonimi), quindi sulla base della necessità e volontà di procedere all’indagine statistica, rigorosamente su dati previamente trasformati in forma
+    anonima e pubblicati solo in forma aggregata.
+    Natura del conferimento e conseguenze in caso di rifiuto.
+    Il conferimento dei dati richiesti è facoltativo. Qualora l’interessato rifiuti di conferire i dati anagrafici sarebbe impossibile perfezionare l’iscrizione al sindacato e/o svolgere l’attività per la quale l’interessato si
+    è rivolto alla CGIL. Laddove rifiuti di fornire altri dati non essenziali per l’iscrizione o per l’attività, potrebbe essere impossibile o particolarmente difficoltoso garantire il corretto perseguimento delle finalità
+    sindacali o istituzionali.
+    Comunicazione, diffusione e trasferimento all’estero dei dati.
+    Al fine di adempiere agli obblighi statutari e/o sindacali, e comunque per il corretto esercizio della libertà sindacale e per la tutela dell’iscritto e degli altri soggetti tutelati, i dati potrebbero essere trasmessi e
+    comunicati, esclusivamente previo consenso, ad altri soggetti quali, in particolare, il datore di lavoro o ente pensionistico, ente bilaterale o enti paritetici contrattuali e/o enti pubblici verso i quali la
+    comunicazione è prevista dalla normativa.
+    I dati stessi potrebbero inoltre essere comunicati, sempre previo consenso, e per consentire di usufruire dei servizi offerti, o comunque per informare sui medesimi servizi, al Patronato Inca e ai CAAF CGIL
+    costituiti dal sindacato, all’AUSER, al SUNIA o alla Federconsumatori, ad associazioni costituite o promosse dalla CGIL o, comunque, a enti o persone giuridiche con o senza scopo di lucro, costituiti o promossi
+    dalla CGIL dei quali il sindacato si avvale per il perseguimento dei propri scopi.
+    I dati trattati saranno resi noti a tutti i soggetti, siano essi persone fisiche o giuridiche, espressamente autorizzate al trattamento o designate quali responsabili del trattamento, come tali tenuti agli stessi
+    obblighi di riservatezza che competono al sindacato e, comunque, espressamente istruiti sull’osservanza delle norme di sicurezza.
+    I suoi dati personali potranno essere diffusi solo laddove siano stati resi pubblici dall’interessato e, comunque, esclusivamente nel caso in cui l’interessato abbia assunto cariche dirigenziali sindacali.
+    I dati non saranno trasferiti in Paesi extra UE o verso organizzazioni internazionali, salvo che non vi sia una decisione di adeguatezza. In altri casi, e solo laddove consentito dalla normativa vigente, i dati
+    potrebbero essere trasferiti all’estero solo laddove previamente pseudoanonimizzati o criptati.
+    Conservazione dei dati.
+    I dati saranno trattati per il tempo strettamente necessario all’adempimento delle predette finalità sindacali (normalmente coincidente con il periodo di iscrizione al sindacato e, successivamente, per la
+    durata massima di dieci anni). Per i trattamenti subordinati al consenso i dati saranno trattati sino a quando l’interessato non lo revocherà.
+    I dati trattati per l’attività sindacale verranno cancellati, terminato il rapporto associativo, decorso il periodo di tempo per il quale la legge vigente prescrive la conservazione degli atti e dei documenti
+    contenenti i dati stessi mentre, se trattati per lo svolgimento delle finalità previste dal consenso prestato, verranno cancellati immediatamente dopo l’esercizio del diritto di revoca.
+    Diritti dell’interessato e reclamo all’autorità di controllo.
+    L’interessato, ai sensi di legge, gode del diritto di chiedere l’accesso ai dati e al trattamento e, nei casi previsti, la rettifica, la cancellazione e la portabilità dei dati. L’interessato gode altresì del diritto di
+    chiedere la limitazione del trattamento, opporsi allo stesso e/o revocare il consenso sul quale il trattamento si fondi. L’interessato gode altresì del diritto di proporre reclamo o segnalazione all’autorità di
+    controllo dello Stato UE in cui risiede, in cui lavora o in cui è avvenuta la violazione che, per l’Italia, è il Garante per la protezione dei dati, per il quale può reperire ogni informazione utile nel sito
+    www.garanteprivacy.it. I predetti diritti possono essere esercitati direttamente presso le strutture territoriali della CGIL, che può reperire nel sito internet www.cgil.it/sedi, oppure scrivendo al Responsabile
+    per la Protezione dei Dati (privacy@cgil.it).
+    Cons
+  </div>
+</div>
+</div>
+</body>
+</html>

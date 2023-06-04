@@ -1,0 +1,238 @@
+<%= form_with(model: subscriber) do |form| %>
+  <% if subscriber.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(subscriber.errors.count, "error") %> Errore!&emsp;Non posso salvare per i seguenti motivi:</h2>
+      <ul>
+        <% subscriber.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class='row'>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-id-card"></i>
+          &emsp;Codice Fiscale
+        </span>
+        <%= form.text_field :fiscal_code, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-user"></i>
+          &emsp;Nome
+        </span>
+        <%= form.text_field :first_name, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-regular fa-user"></i>
+          &emsp;Cognome
+        </span>
+        <%= form.text_field :last_name, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-venus-mars"></i>
+          &emsp;Sesso
+        </span>
+        <%= form.collection_select(:sex_id, Sex.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-calendar-day"></i>
+          &emsp;Data di Nascita
+        </span>
+        <%= form.date_field :birth_date, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-tree-city"></i>
+          &emsp;Luogo di Nascita
+        </span>
+        <%= form.text_field :birth_place, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-earth-europe"></i>
+          &emsp;Nazionalit&agrave;
+        </span>
+        <%= form.text_field :nationality, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-regular fa-flag"></i>
+          &emsp;Cittadinanza
+        </span>
+        <%= form.text_field :citizenship, class: "form-control text-primary" %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class='row'>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text">
+          <i class="fa-solid fa-home"></i>
+          &emsp;Indirizzo
+        </span>
+        <%= form.text_field :address, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-house-chimney-window"></i>
+          &emsp;Civico
+        </span>
+        <%= form.text_field :house_number, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-envelope"></i>
+          &emsp;C.A.P.
+        </span>
+        <%= form.text_field :zip, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-city"></i>
+          &emsp;Comune
+        </span>
+        <%= form.text_field :city, class: "form-control text-primary" %>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-map-location"></i>
+          &emsp;Provincia
+        </span>
+        <%= form.text_field :province, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-phone"></i>
+          &emsp;Telefono
+        </span>
+        <%= form.text_field :phone, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-mobile-screen"></i>
+          &emsp;Cellulare
+        </span>
+        <%= form.text_field :mobile, class: "form-control text-primary" %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text">
+          <i class="fa-solid fa-at"></i>
+          &emsp;E-Mail
+        </span>
+        <%= form.text_field :email, class: "form-control text-primary" %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class='row'>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-person-digging"></i>
+          &emsp;Occupazione
+        </span>
+        <%= form.collection_select(:occupation_id, Occupation.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-square"></i>
+          &emsp;Categoria
+        </span>
+        <%= form.collection_select(:category_id, Category.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-id-card"></i>
+          &emsp;Tessera Consegnata
+        </span>
+        <%= form.collection_select(:delivery_card_id, DeliveryCard.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-building"></i>
+          &emsp;Settore Privato
+        </span>
+        <%= form.collection_select(:private_sector_id, PrivateSector.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-regular fa-building"></i>
+          &emsp;Settore Publico
+        </span>
+        <%= form.collection_select(:public_sector_id, PublicSector.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-file-circle-question"></i>
+          &emsp;Motivo Sottoscrizione
+        </span>
+        <%= form.collection_select(:subscription_reason_id, SubscriptionReason.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-file-signature"></i>
+          &emsp;Tipo Sottoscrizione
+        </span>
+        <%= form.collection_select(:subscription_type_id, SubscriptionType.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-file-signature"></i>
+          &emsp;Ha Versato
+        </span>
+        <%= form.number_field :amount, step: 0.01, class: "form-control text-primary" %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class='row'>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-key"></i>
+          &emsp;Primo Consenso
+        </span>
+        <%= form.collection_select(:privacy_first_id, PrivacyFirst.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-key"></i>
+          &emsp;Secondo Consenso
+        </span>
+        <%= form.collection_select(:privacy_second_id, PrivacySecond.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+    </div>
+    <div class='col'>
+      <div class="input-group mb-1">
+        <span class="input-group-text input-group-text-fixed">
+          <i class="fa-solid fa-key"></i>
+          &emsp;Terzo Consenso
+        </span>
+        <%= form.collection_select(:privacy_third_id, PrivacyThird.all, :id, :name, {:include_blank => true}, {:class => "form-select text-primary"}) %>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class='row'>
+    <div class='col'>
+      <div class="d-grid">
+        <%= form.submit class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>

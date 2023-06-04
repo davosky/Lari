@@ -1,0 +1,230 @@
+<%= turbo_frame_tag :remote_modal, target: :_top do %>
+  <div class="modal fade" data-controller="modal">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header mb-5">
+          <div class="modal-title">
+            <%= image_tag("subscriber_index_logo.svg", class: "img-fluid") %>
+          </div>
+          <a class="btn btn-light modal-header-link" data-bs-dismiss="modal" aria-label="Close">
+            <i class="fa-solid fa-xmark"></i>
+          </a>
+        </div>
+        <div class="modal-body m-3">
+          <div class='row'>
+            <div class="col">
+              <div id="<%= dom_id @subscriber %>" class="scaffold_record">
+                <h4 class='text-dark'>
+                  <small class='text-primary'>
+                    <%= @subscriber.code %>
+                  </small>
+                  &emsp;
+                  <small>
+                    <strong class='text-dark'>
+                      <%= @subscriber.first_name %>
+                      &nbsp;
+                      <%= @subscriber.last_name %>
+                    </strong>
+                  </small>
+                  &nbsp;
+                  <span class='text-primary'>
+                    <%= @subscriber.fiscal_code %>
+                    &nbsp;
+                    <%= gender_icon(@subscriber) %>
+                  </span>
+                  <span class='float-end'>
+                    <%= privacy_icon(@subscriber) %>
+                    &nbsp;
+                    <i class="fa-solid fa-user-pen <%= has_subscribed(@subscriber) %>"></i>
+                    <i class="fa-solid fa-square <%= has_subscribed(@subscriber) %>"></i>
+                  </span>
+                </h4>
+              </div>
+            </div>
+          </div>
+          <hr/>
+          <div class='row'>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">Data di Nascita:</td>
+                    <td><%= l(@subscriber.birth_date) %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-light">Nazionalit&agrave;:</td>
+                    <td><%= @subscriber.nationality %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">Luogo di Nascita:</td>
+                    <td><%= @subscriber.birth_place %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-light">Cittadinanza:</td>
+                    <td><%= @subscriber.citizenship %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">Indirizzo:</td>
+                    <td>
+                      <%= @subscriber.address %>
+                      <span class='float-end'>
+                        <span class='text-light'>
+                          Civico:
+                        </span>
+                        &emsp;
+                        <%= @subscriber.house_number %>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">C.a.p.:</td>
+                    <td>
+                      <%= @subscriber.zip %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-light">Provincia:</td>
+                    <td>
+                      <%= @subscriber.province %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">Comune:</td>
+                    <td>
+                      <%= @subscriber.city %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">Telefono:</td>
+                    <td><%= @subscriber.phone %></td>
+                    <td class="text-light">Cellulare:</td>
+                    <td><%= @subscriber.mobile %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-light">E-Mail:</td>
+                    <td><%= @subscriber.email %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">Occupazione:</td>
+                    <td><%= @subscriber.occupation.name %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-light">Categoria:</td>
+                    <td><%= @subscriber.category.name %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class="text-light">Tessera Consegnata:</td>
+                    <td><%= @subscriber.delivery_card.name %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-light">Motivo Sottoscrizione:</td>
+                    <td><%= @subscriber.subscription_reason.name %></td>
+                  </tr>
+                  <tr>
+                    <td class="text-light">Tipo Sottoscrizione:</td>
+                    <td><%= @subscriber.subscription_type.name %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class='text-light'>
+                      Settore Privato:
+                    </td>
+                    <% if @subscriber.private_sector_id.present? %>
+                      <td>
+                        <%= @subscriber.private_sector.name %>
+                      </td>
+                    <% end %>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class='col'>
+              <table class='table'>
+                <tbody>
+                  <tr>
+                    <td class='text-light'>
+                      Settore Publico:
+                    </td>
+                    <% if @subscriber.public_sector_id.present? %>
+                      <td>
+                        <%= @subscriber.public_sector.name %>
+                      </td>
+                    <% end %>
+                  </tr>
+                  <tr>
+                    <td class='text-light'>
+                      Ha Versato:
+                    </td>
+                    <td>
+                      <%= @subscriber.amount %>&nbsp;&euro;
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<% end %>

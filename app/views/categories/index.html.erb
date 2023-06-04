@@ -1,0 +1,44 @@
+<div class="col">
+  <p class="mb-3">
+    <%= image_tag("category_index_logo.svg", class: "img-fluid") %>
+    <span class="float-end">
+      <span class="float-right">
+        <%= link_to new_category_path, "data-controller": "turbo", class: "btn btn-sm btn-primary shadow" do %>
+          <i class="fa-solid fa-square"></i>
+          &nbsp;
+          <i class="fa-solid fa-plus"></i>
+          &nbsp;
+          Inserisci una Nuova Categoria
+        <% end %>
+      </span>
+    </p>
+    <hr class="hr-primary"/>
+    <% @categories.each do |category| %>
+      <div class="card m-2 shadow border-light">
+        <div class="card-body card-body-animated">
+          <%= category.position %>
+          &emsp;
+          <%= category.name %>
+          <span class="float-end">
+            <%= link_to edit_category_path(category), "data-controller": "turbo" , 
+            "data-bs-toggle": "tooltip", 
+            "title": "Modifica il Record Corrente" do %>
+              <i class="fa-solid fa-pen-to-square"></i>
+            <% end %>
+            &emsp;
+            <%= link_to category_path(category),
+            "data-turbo-method": :delete,
+            "data-turbo-confirm": "Sicuri di voler eliminare il record corrente?" , 
+            "data-bs-toggle": "tooltip", 
+            "title": "Elimina il Record Corrente" do%>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row">
+    <br>
+    <%= paginate @categories %>
+  </div>
