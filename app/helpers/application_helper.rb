@@ -30,9 +30,9 @@ module ApplicationHelper
   def landlord_type_icon(landlord)
     landlordtypeicon = ""
     if landlord.landlord_type_id == 1
-      landlordtypeicon = "<i class='fa-solid fa-industry'></i>&nbsp;(Agenzia)"
+      landlordtypeicon = "<i class='fa-solid fa-industry text-primary'></i>&nbsp;(Agenzia) "
     else
-      landlordtypeicon = "<i class='fa-solid fa-user-tie'></i>&nbsp;(Privato)"
+      landlordtypeicon = "<i class='fa-solid fa-user-tie text-primary'></i>&nbsp;(Privato)"
     end
     landlordtypeicon.html_safe
   end

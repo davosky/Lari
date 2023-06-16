@@ -2,222 +2,283 @@
   <div class="modal fade" data-controller="modal">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-header mb-5">
+        <div class="modal-header mb-1">
           <div class="modal-title">
-            <%= image_tag("subscriber_index_logo.svg", class: "img-fluid") %>
+            <%= image_tag("subscriber_index_logo.svg", size: '250x50', class: "img-fluid") %>
           </div>
-          <a class="btn btn-light modal-header-link" data-bs-dismiss="modal" aria-label="Close">
+          <a class="modal-header-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
           </a>
         </div>
-        <div class="modal-body m-3">
+        <div class="modal-body m-2">
           <div class='row'>
-            <div class="col">
+            <div class="col mb-2">
               <div id="<%= dom_id @subscriber %>" class="scaffold_record">
                 <h4 class='text-dark'>
                   <small class='text-primary'>
                     <%= @subscriber.code %>
-                  </small>
-                  &emsp;
-                  <small>
-                    <strong class='text-dark'>
+                    &emsp;
+                    <strong class='text-detail'>
                       <%= @subscriber.first_name %>
                       &nbsp;
                       <%= @subscriber.last_name %>
                     </strong>
+                    &nbsp;
+                    <span class='text-primary'>
+                      <%= @subscriber.fiscal_code %>
+                      &nbsp;
+                      <%= gender_icon(@subscriber) %>
+                    </span>
+                    <span class='float-end'>
+                      <%= privacy_icon(@subscriber) %>
+                      &nbsp;
+                      <i class="fa-solid fa-user-pen <%= has_subscribed(@subscriber) %>"></i>
+                      <i class="fa-solid fa-square <%= has_subscribed(@subscriber) %>"></i>
+                    </span>
                   </small>
-                  &nbsp;
-                  <span class='text-primary'>
-                    <%= @subscriber.fiscal_code %>
-                    &nbsp;
-                    <%= gender_icon(@subscriber) %>
-                  </span>
-                  <span class='float-end'>
-                    <%= privacy_icon(@subscriber) %>
-                    &nbsp;
-                    <i class="fa-solid fa-user-pen <%= has_subscribed(@subscriber) %>"></i>
-                    <i class="fa-solid fa-square <%= has_subscribed(@subscriber) %>"></i>
-                  </span>
                 </h4>
               </div>
             </div>
           </div>
-          <hr/>
           <div class='row'>
             <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Data di Nascita:</td>
-                    <td><%= l(@subscriber.birth_date) %></td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">Nazionalit&agrave;:</td>
-                    <td><%= @subscriber.nationality %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Luogo di Nascita:</td>
-                    <td><%= @subscriber.birth_place %></td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">Cittadinanza:</td>
-                    <td><%= @subscriber.citizenship %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Indirizzo:</td>
-                    <td>
-                      <%= @subscriber.address %>
-                      <span class='float-end'>
-                        <span class='text-light'>
-                          Civico:
-                        </span>
+              <div class='card card-detail'>
+                <div class='row'>
+                  <div class='col'>
+                    <i class="fa-solid fa-calendar-day"></i>
+                    &nbsp;
+                    Data di Nascita:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= l(@subscriber.birth_date) %>
+                    </strong>
+                  </div>
+                  <div class='col'>
+                    <i class="fa-solid fa-earth-europe"></i>
+                    &nbsp;
+                    Nazionalit&agrave;:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @subscriber.nationality %>
+                    </strong>
+                  </div>
+                  <div class='col'>
+                    <i class="fa-solid fa-tree-city"></i>
+                    &nbsp;
+                    Luogo di Nascita:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @subscriber.birth_place %>
+                    </strong>
+                  </div>
+                  <hr class="hr-orange mt-2"/>
+                </div>
+                <div class='row'>
+                  <div class='col'>
+                    <i class="fa-regular fa-flag"></i>
+                    &nbsp;
+                    Cittadinanza:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @subscriber.citizenship %>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+              <div class='row mt-2'>
+                <div class='col'>
+                  <div class='card card-detail'>
+                    <div class='row'>
+                      <div class='col'>
+                        <i class="fa-solid fa-home"></i>
+                        &nbsp;
+                        Indirizzo:
                         &emsp;
-                        <%= @subscriber.house_number %>
+                        <strong class="text-detail">
+                          <%= @subscriber.address %>
+                        </strong>
+                        <span class='float-end'>
+                          <i class="fa-solid fa-house-chimney-window"></i>
+                          &nbsp;
+                          Civico:
+                          &emsp;
+                          <strong class="text-detail">
+                            <%= @subscriber.house_number %>
+                          </strong>
+                        </span>
+                      </div>
+                    </div>
+                    <hr class="hr-orange mt-2"/>
+                    <div class='row'>
+                      <div class='col'>
+                        <i class="fa-solid fa-envelope"></i>
+                        &nbsp;
+                        Cap:
+                        &emsp;
+                        <strong class="text-detail">
+                          <%= @subscriber.zip %>
+                        </strong>
                       </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">C.a.p.:</td>
-                    <td>
-                      <%= @subscriber.zip %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">Provincia:</td>
-                    <td>
+                    </div>
+                    <div class='col'>
+                      <i class="fa-solid fa-city"></i>
+                      &nbsp;
+                      Comune:
+                      &emsp;
+                      <strong class="text-detail">
+                        <%= @subscriber.city %>
+                      </strong>
+                    </span>
+                  </div>
+                  <div class='col'>
+                    <i class="fa-solid fa-map-location"></i>
+                    &nbsp;
+                    Provincia:
+                    &emsp;
+                    <strong class="text-detail">
                       <%= @subscriber.province %>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Comune:</td>
-                    <td>
-                      <%= @subscriber.city %>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                    </strong>
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
-          <div class='row'>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Telefono:</td>
-                    <td><%= @subscriber.phone %></td>
-                    <td class="text-light">Cellulare:</td>
-                    <td><%= @subscriber.mobile %></td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">E-Mail:</td>
-                    <td><%= @subscriber.email %></td>
-                  </tr>
-                </tbody>
-              </table>
+        </div>
+        <div class='row mt-2'>
+          <div class='col'>
+            <div class='card card-detail'>
+              <div class='row'>
+                <div class='col'>
+                  <i class="fa-solid fa-phone"></i>
+                  &nbsp;
+                  Telefono:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.phone %>
+                  </strong>
+                </div>
+                <div class='col'>
+                  <i class="fa-solid fa-mobile-screen"></i>
+                  &nbsp;
+                  Cellulare:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.mobile %>
+                  </strong>
+                </div>
+                <div class='col'>&emsp;</div>
+              </div>
+              <hr class="hr-orange mt-2"/>
+              <div class='row'>
+                <div class='col'>
+                  <i class="fa-solid fa-at"></i>
+                  &nbsp;
+                  E-Mail:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.email %>
+                  </strong>
+                </div>
+              </div>
             </div>
           </div>
-          <div class='row'>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Occupazione:</td>
-                    <td><%= @subscriber.occupation.name %></td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">Categoria:</td>
-                    <td><%= @subscriber.category.name %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Tessera Consegnata:</td>
-                    <td><%= @subscriber.delivery_card.name %></td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">Motivo Sottoscrizione:</td>
-                    <td><%= @subscriber.subscription_reason.name %></td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">Tipo Sottoscrizione:</td>
-                    <td><%= @subscriber.subscription_type.name %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class='text-light'>
-                      Settore Privato:
-                    </td>
+        </div>
+        <div class='row mt-2'>
+          <div class='col'>
+            <div class='card card-detail'>
+              <div class='row'>
+                <div class='col'>
+                  <i class="fa-solid fa-building"></i>
+                  &nbsp;
+                  Settore Privato:
+                  &emsp;
+                  <strong class="text-detail">
                     <% if @subscriber.private_sector_id.present? %>
                       <td>
                         <%= @subscriber.private_sector.name %>
                       </td>
                     <% end %>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class='text-light'>
-                      Settore Publico:
-                    </td>
+                  </strong>
+                </div>
+                <div class='col'>
+                  <i class="fa-regular fa-building"></i>
+                  &nbsp;
+                  Settore Publico:
+                  &emsp;
+                  <strong class="text-detail">
                     <% if @subscriber.public_sector_id.present? %>
                       <td>
                         <%= @subscriber.public_sector.name %>
                       </td>
                     <% end %>
-                  </tr>
-                  <tr>
-                    <td class='text-light'>
-                      Ha Versato:
-                    </td>
-                    <td>
-                      <%= @subscriber.amount %>&nbsp;&euro;
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+                  </strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='row mt-2'>
+          <div class='col'>
+            <div class='card card-detail'>
+              <div class='row'>
+                <div class='col'>
+                  <i class="fa-solid fa-person-digging"></i>
+                  &nbsp;
+                  Occupazione:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.occupation.name %>
+                  </strong>
+                </div>
+                <div class='col'>
+                  <i class="fa-solid fa-square"></i>
+                  &nbsp;
+                  Categoria:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.category.name %>
+                  </strong>
+                </div>
+                <div class='col'>
+                  <i class="fa-solid fa-id-card"></i>
+                  &nbsp;
+                  Tessera Consegnata:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.delivery_card.name %>
+                  </strong>
+                </div>
+              </div>
+              <hr class="hr-orange mt-2"/>
+              <div class='row'>
+                <div class='col'>
+                  <i class="fa-solid fa-file-circle-question"></i>
+                  &nbsp;
+                  Motivo Sottoscrizione:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.subscription_reason.name %>
+                  </strong>
+                </div>
+                <div class='col'>
+                  <i class="fa-solid fa-file-signature"></i>
+                  &nbsp;
+                  Tipo Sottoscrizione:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.subscription_type.name %>
+                  </strong>
+                </div>
+                <div class='col'>
+                  <i class="fa-solid fa-money-bill"></i>
+                  &nbsp;
+                  Ha Versato:
+                  &emsp;
+                  <strong class="text-detail">
+                    <%= @subscriber.amount %>&nbsp;&euro;
+                  </strong>
+                </div>
+              </div>
             </div>
           </div>
         </div>

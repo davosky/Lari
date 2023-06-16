@@ -4,14 +4,14 @@
       <div class="modal-content">
         <div class="modal-header mb-1">
           <div class="modal-title">
-            <%= image_tag("landlord_index_logo.svg", class: "img-fluid") %>
+            <%= image_tag("landlord_index_logo.svg", size: '250x50', class: "img-fluid") %>
           </div>
-          <a class="btn btn-light modal-header-link" data-bs-dismiss="modal" aria-label="Close">
+          <a class="modal-header-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
           </a>
         </div>
         <div class="modal-body m-1">
-          <div class='row'>
+          <div class='row mb-2'>
             <div class="col">
               <div id="<%= dom_id @landlord %>" class="scaffold_record">
                 <h5 class='text-dark'>
@@ -19,155 +19,166 @@
                     <%= @landlord.code %>
                   </small>
                   &emsp;
-                  <small>
-                    <strong class='text-dark'>
+                  <small class="text-primary">
+                    <strong class='text-detail'>
                       <%= @landlord.first_name %>
                       &nbsp;
                       <%= @landlord.last_name %>
                     </strong>
-                  </small>
-                  &nbsp;
-                  <span class='text-primary'>
-                    <%= @landlord.fiscal_code %>
                     &nbsp;
-                  </span>
-                  <span>
+                    <span class='text-primary'>
+                      <%= @landlord.fiscal_code %>
+                      &nbsp;
+                    </span>
                     &emsp;
                     <%= landlord_type_icon(@landlord) %>
-                  </span>
+                  </small>
                 </h5>
               </div>
             </div>
           </div>
-          <hr/>
-          <div class='row'>
+          <div class='row mb-2'>
             <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Indirizzo:</td>
-                    <td>
+              <div class='card card-detail'>
+                <div class='row'>
+                  <div class='col'>
+                    Indirizzo:
+                    &emsp;
+                    <strong class="text-detail">
                       <%= @landlord.address %>
-                      <span class='float-end'>
-                        <span class='text-light'>
-                          Civico:
-                        </span>
-                        &emsp;
-                        <%= @landlord.house_number %>
-                      </span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">C.a.p.:</td>
-                    <td>
-                      <%= @landlord.zip %>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">Provincia:</td>
-                    <td>
-                      <%= @landlord.province %>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Comune:</td>
-                    <td>
-                      <%= @landlord.city %>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='col'>
-              <table class='table'>
-                <tbody>
-                  <tr>
-                    <td class="text-light">Telefono:</td>
-                    <td><%= @landlord.phone %></td>
-                    <td class="text-light">Cellulare:</td>
-                    <td><%= @landlord.mobile %></td>
-                  </tr>
-                  <tr>
-                    <td class="text-light">E-Mail:</td>
-                    <td><%= @landlord.email %></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div class='row'>
-            <div class='col'>
-              <br/>
-              <%= image_tag("building_index_logo.svg", class: "img-fluid") %>
-              <br/>
-              <table class='table'>
-                <thead>
-                  <tr>
-                    <td class="text-light">
-                      Indirizzo:
-                    </td>
-                    <td class="text-light">
+                    </strong>
+                    <span class='float-end'>
                       Civico:
-                    </td>
-                    <td class="text-light">
-                      Cap:
-                    </td>
-                    <td class="text-light">
-                      Comune:
-                    </td>
-                    <td class="text-light">
-                      Provincia:
-                    </td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% @buildings.each do |building| %>
-                    <tr>
-                      <td>
-                        <small>
-                          <%= building.address %>
-                        </small>
-                      </td>
-                      <td>
-                        <small>
-                          <%= building.house_number %>
-                        </small>
-                      </td>
-                      <td>
-                        <small>
-                          <%= building.zip %>
-                        </small>
-                      </td>
-                      <td>
-                        <small>
-                          <%= building.city %>
-                        </small>
-                      </td>
-                      <td>
-                        <small>
-                          <%= building.province %>
-                        </small>
-                      </td>
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
+                      &emsp;
+                      <strong class="text-detail">
+                        <%= @landlord.house_number %>
+                      </strong>
+                    </span>
+                  </div>
+                </div>
+                <hr class="hr-orange mt-2"/>
+                <div class='row'>
+                  <div class='col'>
+                    Cap:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @landlord.zip %>
+                    </strong>
+                  </div>
+                  <div class='col'>
+                    Comune:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @landlord.city %>
+                    </strong>
+                  </div>
+                  <div class='col'>
+                    Provincia:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @landlord.province %>
+                    </strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='row mb-2'>
+            <div class='col'>
+              <div class='card card-detail'>
+                <div class='row'>
+                  <div class='col'>
+                    Telefono:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @landlord.phone %>
+                    </strong>
+                  </div>
+                  <div class='col'>
+                    Cellulare:
+                    &emsp;
+                    <strong class="text-detail">
+                      <%= @landlord.mobile %>
+                    </strong>
+                  </div>
+                </div>
+                <hr class="hr-orange mt-2"/>
+                <div class='row'>
+                  <div class='col'>
+                    <div class='col'>
+                      E-Mail:
+                      &emsp;
+                      <strong class="text-detail">
+                        <%= @landlord.email %>
+                      </strong>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='row mb-2'>
+            <div class='col'>
+              <div class='card card-detail-secondary'>
+                <div class='row'>
+                  <div class='col'>
+                    <%= image_tag("building_index_logo.svg", size: '150x34', class: "img-fluid") %>
+                    <br/>
+                    <table class='table'>
+                      <thead>
+                        <tr>
+                          <td class="text-primary">
+                            Indirizzo:
+                          </td>
+                          <td class="text-primary">
+                            Civico:
+                          </td>
+                          <td class="text-primary">
+                            Cap:
+                          </td>
+                          <td class="text-primary">
+                            Comune:
+                          </td>
+                          <td class="text-primary">
+                            Provincia:
+                          </td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <% @buildings.each do |building| %>
+                          <tr>
+                            <td>
+                              <small class="text-warning">
+                                <%= building.address %>
+                              </small>
+                            </td>
+                            <td>
+                              <small class="text-warning">
+                                <%= building.house_number %>
+                              </small>
+                            </td>
+                            <td>
+                              <small class="text-warning">
+                                <%= building.zip %>
+                              </small>
+                            </td>
+                            <td>
+                              <small class="text-warning">
+                                <%= building.city %>
+                              </small>
+                            </td>
+                            <td>
+                              <small class="text-warning">
+                                <%= building.province %>
+                              </small>
+                            </td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

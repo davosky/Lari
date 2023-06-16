@@ -1,18 +1,18 @@
 <!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'/>
-    <%= stylesheet_link_tag wicked_pdf_asset_base64('print.scss') %>
+    <meta charset="utf-8"/>
+    <%= stylesheet_link_tag wicked_pdf_asset_base64("print.scss") %>
   </head>
   <body>
     <div class="container">
       <div class="row">
         <div class="col">
-          <%= inline_svg('pdf_sunia_logo.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
+          <%= wicked_pdf_image_tag "pdf_sunia_logo.png",size: "340x45" %>
           <hr/>
           <br/>
           <br/>
-          <span class='span-left'>
+          <span class="span-left">
             data sottoscrizione:
             &emsp;
             <strong>
@@ -25,7 +25,7 @@
               <%= @subscriber.id %>
             </strong>
           </span>
-          <span class='span-right'>
+          <span class="span-right">
             codice sottoscrittore:
             &emsp;
             <strong>
@@ -109,7 +109,7 @@
       </tbody>
     </table>
     <br/>
-    <span class='span-right'>
+    <span class="span-right">
       Ha versaro alla Categoria:
       &emsp;
       <strong></strong>
@@ -120,87 +120,6 @@
         &euro;
       </strong>
     </span>
-  </div>
-</div>
-<br/>
-<hr/>
-<br/>
-<div class='row'>
-  <div class='col'>
-    1. Io sottoscritto, letta l’informativa che precede e consapevole che il trattamento dei dati in ambito sindacale non richiede il consenso,
-    <br/>
-    <br/>
-    presto il mio consenso
-    &emsp;
-    <% unless @subscriber.privacy_first.name == "NO" %>
-      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% else %>
-      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% end %>
-    &emsp;&emsp;
-    nego il mio consenso
-    &emsp;
-    <% unless @subscriber.privacy_first.name == "SI" %>
-      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% else %>
-      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% end %>
-    <br/>
-    <br/>
-    alla comunicazione dei miei dati comuni e particolari ai soggetti indicati nell’informativa (datore di lavoro, enti previdenziali ed assistenziali, enti bilaterali, enti paritetici contrattuali) nei limiti in cui la
-    comunicazione sia essenziale per l’adempimento degli scopi statutari o degli obblighi legali.
-    <br/>
-    <br/>
-    2. In relazione alla predetta informativa, prendendo atto che la prestazione del consenso per attività estranee alla tutela del lavoratore o del pensionato non è obbligatoria e che, in caso di rifiuto,
-    non riceverei alcun pregiudizio,
-    <br/>
-    <br/>
-    presto il mio consenso
-    &emsp;
-    <% unless @subscriber.privacy_second.name == "NO" %>
-      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% else %>
-      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% end %>
-    &emsp;&emsp;
-    nego il mio consenso
-    &emsp;
-    <% unless @subscriber.privacy_second.name == "SI" %>
-      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% else %>
-      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% end %>
-    <br/>
-    <br/>
-    al trattamento dei miei dati per comunicazione sindacale da parte del sindacato e dei contitolari del trattamento per finalità più ampiamente indicate nell’informativa, anche a mezzo di strumenti tecnologici
-    avanzati quali fax, Email, SMS, MMS.
-    <br/>
-    <br/>
-    3. Nella consapevolezza che la prestazione del consenso alla comunicazione dei dati per attività estranee alla tutela sindacale, se pur previste dallo Statuto, non è
-    obbligatoria e che, in caso di rifiuto, non riceverei alcun pregiudizio,
-    <br/>
-    <br/>
-    presto il mio consenso
-    &emsp;
-    <% unless @subscriber.privacy_third.name == "NO" %>
-      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% else %>
-      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% end %>
-    &emsp;&emsp;
-    nego il mio consenso
-    &emsp;
-    <% unless @subscriber.privacy_third.name == "SI" %>
-      <%= inline_svg('privacy_yes.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% else %>
-      <%= inline_svg('privacy_no.svg', preserve_aspect_ratio: 'xMaxYMax meet') %>
-    <% end %>
-    <br/>
-    <br/>
-    alla comunicazione e al successivo trattamento dei miei dati personali comuni e particolari al Patronato Inca, ai CAAF CGIL SRL costituiti dalla CGIL, al Sunia, all’Auser e alla Federconsumatori e, comunque,
-    agli enti e alle persone giuridiche con o senza scopo di lucro delle quali si avvale l’associazione sindacale per il perseguimento dei propri scopi statutari o, comunque, con essa convenzionate o affiliate, o da
-    essa costituiti e/o promossi, affinché tali soggetti possano erogare servizi di tutela in qualsiasi ambito lavorativo, fiscale, contabile, previdenziale, assistenziale e consumeristico e trattare tali dati per
-    informarmi sui loro servizi di assistenza e tutela a mezzo posta cartacea e di strumenti tecnologici avanzati quali fax, SMS, MMS e Email.
     <br/>
     <br/>
     <br/>
@@ -216,10 +135,91 @@
       &nbsp;
       <%= @subscriber.operator.last_name %>
     </small>
+  </div>
+</div>
+<br/>
+<hr/>
+<br/>
+<div class="row">
+  <div class="col">
+    1. Io sottoscritto, letta l’informativa che precede e consapevole che il trattamento dei dati in ambito sindacale non richiede il consenso,
+    <br/>
+    <br/>
+    presto il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_first.name == "NO" %>
+      <%= wicked_pdf_image_tag "privacy_yes.png",size: "16x16" %>
+    <% else %>
+      <%= wicked_pdf_image_tag "privacy_no.png",size: "16x16" %>
+    <% end %>
+    &emsp;&emsp;
+    nego il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_first.name == "SI" %>
+      <%= wicked_pdf_image_tag "privacy_yes.png",size: "16x16" %>
+    <% else %>
+      <%= wicked_pdf_image_tag "privacy_no.png",size: "16x16" %>
+    <% end %>
+    <br/>
+    <br/>
+    alla comunicazione dei miei dati comuni e particolari ai soggetti indicati nell’informativa (datore di lavoro, enti previdenziali ed assistenziali, enti bilaterali, enti paritetici contrattuali) nei limiti in cui la
+    comunicazione sia essenziale per l’adempimento degli scopi statutari o degli obblighi legali.
+    <br/>
+    <br/>
+    2. In relazione alla predetta informativa, prendendo atto che la prestazione del consenso per attività estranee alla tutela del lavoratore o del pensionato non è obbligatoria e che, in caso di rifiuto,
+    non riceverei alcun pregiudizio,
+    <br/>
+    <br/>
+    presto il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_second.name == "NO" %>
+      <%= wicked_pdf_image_tag "privacy_yes.png",size: "16x16" %>
+    <% else %>
+      <%= wicked_pdf_image_tag "privacy_no.png",size: "16x16" %>
+    <% end %>
+    &emsp;&emsp;
+    nego il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_second.name == "SI" %>
+      <%= wicked_pdf_image_tag "privacy_yes.png",size: "16x16" %>
+    <% else %>
+      <%= wicked_pdf_image_tag "privacy_no.png",size: "16x16" %>
+    <% end %>
+    <br/>
+    <br/>
+    al trattamento dei miei dati per comunicazione sindacale da parte del sindacato e dei contitolari del trattamento per finalità più ampiamente indicate nell’informativa, anche a mezzo di strumenti tecnologici
+    avanzati quali fax, Email, SMS, MMS.
+    <br/>
+    <br/>
+    3. Nella consapevolezza che la prestazione del consenso alla comunicazione dei dati per attività estranee alla tutela sindacale, se pur previste dallo Statuto, non è
+    obbligatoria e che, in caso di rifiuto, non riceverei alcun pregiudizio,
+    <br/>
+    <br/>
+    presto il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_third.name == "NO" %>
+      <%= wicked_pdf_image_tag "privacy_yes.png",size: "16x16" %>
+    <% else %>
+      <%= wicked_pdf_image_tag "privacy_no.png",size: "16x16" %>
+    <% end %>
+    &emsp;&emsp;
+    nego il mio consenso
+    &emsp;
+    <% unless @subscriber.privacy_third.name == "SI" %>
+      <%= wicked_pdf_image_tag "privacy_yes.png",size: "16x16" %>
+    <% else %>
+      <%= wicked_pdf_image_tag "privacy_no.png",size: "16x16" %>
+    <% end %>
+    <br/>
+    <br/>
+    alla comunicazione e al successivo trattamento dei miei dati personali comuni e particolari al Patronato Inca, ai CAAF CGIL SRL costituiti dalla CGIL, al Sunia, all’Auser e alla Federconsumatori e, comunque,
+    agli enti e alle persone giuridiche con o senza scopo di lucro delle quali si avvale l’associazione sindacale per il perseguimento dei propri scopi statutari o, comunque, con essa convenzionate o affiliate, o da
+    essa costituiti e/o promossi, affinché tali soggetti possano erogare servizi di tutela in qualsiasi ambito lavorativo, fiscale, contabile, previdenziale, assistenziale e consumeristico e trattare tali dati per
+    informarmi sui loro servizi di assistenza e tutela a mezzo posta cartacea e di strumenti tecnologici avanzati quali fax, SMS, MMS e Email.
     <br/>
     <br/>
     <br/>
-    <span class='span-right'>
+    <span class="span-right">
       Firma del sottoscrittore:
       &emsp;
       _________________________________
