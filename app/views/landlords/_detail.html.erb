@@ -2,16 +2,16 @@
   <div class="modal fade" data-controller="modal">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-header mb-1">
+        <div class="modal-header pb-1">
           <div class="modal-title">
-            <%= image_tag("landlord_index_logo.svg", size: '250x50', class: "img-fluid") %>
+            <%= image_tag("landlord_index_logo.png", size: '250x50', class: "img-fluid") %>
           </div>
           <a class="modal-header-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
           </a>
         </div>
-        <div class="modal-body m-1">
-          <div class='row mb-2'>
+        <div class="modal-body p-3">
+          <div class='row mb-3'>
             <div class="col">
               <div id="<%= dom_id @landlord %>" class="scaffold_record">
                 <h5 class='text-dark'>
@@ -39,7 +39,7 @@
           </div>
           <div class='row mb-2'>
             <div class='col'>
-              <div class='card card-detail'>
+              <div class='card card-detail shadow'>
                 <div class='row'>
                   <div class='col'>
                     Indirizzo:
@@ -85,7 +85,7 @@
           </div>
           <div class='row mb-2'>
             <div class='col'>
-              <div class='card card-detail'>
+              <div class='card card-detail shadow'>
                 <div class='row'>
                   <div class='col'>
                     Telefono:
@@ -119,7 +119,7 @@
           </div>
           <div class='row mb-2'>
             <div class='col'>
-              <div class='card card-detail-secondary'>
+              <div class='card card-detail-secondary shadow'>
                 <div class='row'>
                   <div class='col'>
                     <%= image_tag("building_index_logo.svg", size: '150x34', class: "img-fluid") %>

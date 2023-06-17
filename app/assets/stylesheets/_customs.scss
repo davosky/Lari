@@ -148,24 +148,26 @@ table {
   border-top: none;
   border-left: none;
   border-right: none;
-  color: $gray-800;
+  color: $panna;
 }
 .card-body-animated {
+  color: $primary;
+
   &:hover {
     background-color: $green-light;
     border-bottom: solid 1px $green;
   }
 }
 .card-detail {
-  background-color: $gray-detail;
+  background-color: $white;
   color: $primary;
   border: solid 1px darken($gray-detail, 20%);
   padding: 1rem;
 }
 .card-detail-secondary {
-  background-color: $green-light;
+  background-color: $gray-detail;
   color: $primary;
-  border: solid 1px darken($green-light, 15%);
+  border: solid 1px darken($gray-detail, 15%);
   padding: 1rem;
 }
 .card-detail-light {
@@ -182,6 +184,10 @@ table {
 .modal-header {
   background: $panna;
   border-bottom: solid 1px darken($panna, 20%);
+}
+.modal-body {
+  background: $panna;
+  border-radius: 3px;
 }
 .modal-header-link {
   &:hover {

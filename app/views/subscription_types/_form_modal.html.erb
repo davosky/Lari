@@ -2,15 +2,15 @@
   <div class="modal fade" data-controller="modal">
     <div class="modal-dialog modal-xl">
       <div class="modal-content">
-        <div class="modal-header mb-5">
+        <div class="modal-header pb-5">
           <div class="modal-title">
-            <%= image_tag("subscription_type_index_logo.svg", class: "img-fluid") %>
+            <%= image_tag("subscription_type_index_logo.png", class: "img-fluid") %>
           </div>
           <a class="btn btn-light modal-header-link" data-bs-dismiss="modal" aria-label="Close">
             <i class="fa-solid fa-xmark"></i>
           </a>
         </div>
-        <div class="modal-body mb-5">
+        <div class="modal-body pb-5">
           <div class="col-8 offset-2">
             <%= render "subscription_types/form", subscription_type: subscription_type %>
           </div>
