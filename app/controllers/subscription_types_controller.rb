@@ -44,7 +44,7 @@ class SubscriptionTypesController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_subscription_type
-    @subscription_type = subscription_type.find(params[:id])
+    @subscription_type = SubscriptionType.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.
