@@ -12,35 +12,36 @@
         </div>
         <div class="modal-body">
           <div class='row'>
-            <div class="col mb-2">
-              <div id="<%= dom_id @subscriber %>" class="scaffold_record">
-                <h4 class='text-dark'>
-                  <small class='text-primary'>
-                    <%= @subscriber.code %>
-                    &emsp;
-                    <strong class='text-detail'>
-                      <%= @subscriber.first_name %>
+            <div class="col mb-1">
+              <div class='card card-detail-secondary shadow'>
+                <div id="<%= dom_id @subscriber %>" class="scaffold_record">
+                  <h4 class='text-dark'>
+                    <small class='text-primary'>
+                      <%= @subscriber.code %>
+                      &emsp;
+                      <strong class='text-detail'>
+                        <%= @subscriber.first_name %>
+                        &nbsp;
+                        <%= @subscriber.last_name %>
+                      </strong>
                       &nbsp;
-                      <%= @subscriber.last_name %>
-                    </strong>
-                    &nbsp;
-                    <span class='text-primary'>
-                      <%= @subscriber.fiscal_code %>
-                      &nbsp;
-                      <%= gender_icon(@subscriber) %>
-                    </span>
-                    <span class='float-end'>
-                      <%= privacy_icon(@subscriber) %>
-                      &nbsp;
-                      <i class="fa-solid fa-user-pen <%= has_subscribed(@subscriber) %>"></i>
-                      <i class="fa-solid fa-square <%= has_subscribed(@subscriber) %>"></i>
-                    </span>
-                  </small>
-                </h4>
+                      <span class='text-primary'>
+                        <%= @subscriber.fiscal_code %>
+                        &nbsp;
+                        <%= gender_icon(@subscriber) %>
+                      </span>
+                      <span class='float-end'>
+                        <%= privacy_icon(@subscriber) %>
+                        &nbsp;
+                        <i class="fa-solid fa-square <%= has_subscribed(@subscriber) %>"></i>
+                      </span>
+                    </small>
+                  </h4>
+                </div>
               </div>
             </div>
           </div>
-          <div class='row pt-3'>
+          <div class='row pt-3 mb-3'>
             <div class='col'>
               <div class='card card-detail shadow'>
                 <div class='row'>
