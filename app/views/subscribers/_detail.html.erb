@@ -17,15 +17,27 @@
                 <div id="<%= dom_id @subscriber %>" class="scaffold_record">
                   <h4 class='text-dark'>
                     <small class='text-primary'>
-                      <%= @subscriber.code %>
+                      <i class="fa-solid fa-id-card-clip"></i>
+                      &nbsp;
+                      <span class='text-dark'>
+                        <%= @subscriber.code %>
+                      </span>
                       &emsp;
+                      <small class='text-primary'>
+                        <i class="fa-solid fa-user-circle"></i>
+                      </small>
+                      &nbsp;
                       <strong class='text-detail'>
                         <%= @subscriber.first_name %>
                         &nbsp;
                         <%= @subscriber.last_name %>
                       </strong>
                       &nbsp;
-                      <span class='text-primary'>
+                      <small class='text-primary'>
+                        <i class="fa-solid fa-id-card"></i>
+                      </small>
+                      &nbsp;
+                      <span class='text-dark'>
                         <%= @subscriber.fiscal_code %>
                         &nbsp;
                         <%= gender_icon(@subscriber) %>

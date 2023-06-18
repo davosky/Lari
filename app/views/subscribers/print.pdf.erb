@@ -8,7 +8,7 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <%= wicked_pdf_image_tag "pdf_sunia_logo.png",size: "340x45" %>
+          <%= wicked_pdf_image_tag "pdf_sunia_logo.png",size: "605x45" %>
           <hr/>
           <br/>
           <br/>
@@ -115,9 +115,7 @@
       <strong></strong>
       &emsp;
       <strong>
-        <%= @subscriber.amount %>
-        &nbsp;
-        &euro;
+        <%= number_to_currency(@subscriber.amount) %>
       </strong>
     </span>
     <br/>
@@ -142,7 +140,7 @@
 <br/>
 <div class="row">
   <div class="col">
-    1. Io sottoscritto, letta l’informativa che precede e consapevole che il trattamento dei dati in ambito sindacale non richiede il consenso,
+    1. Io sottoscritto, letta l’informativa che precede e consapevole che il trattamento dei dati comuni nell’ambito del sindacato non richiede il consenso dell’interessato, 
     <br/>
     <br/>
     presto il mio consenso
@@ -162,12 +160,10 @@
     <% end %>
     <br/>
     <br/>
-    alla comunicazione dei miei dati comuni e particolari ai soggetti indicati nell’informativa (datore di lavoro, enti previdenziali ed assistenziali, enti bilaterali, enti paritetici contrattuali) nei limiti in cui la
-    comunicazione sia essenziale per l’adempimento degli scopi statutari o degli obblighi legali.
+    al trattamento e alla comunicazione dei miei dati particolari ai soggetti indicati nell’informativa nei limiti in cui il trattamento e la comunicazione sia essenziale per l’adempimento degli scopi statutari, del contratto associativo e/o dell’eventuale incarico conferito, nonché degli obblighi stabiliti dalla normativa vigente.
     <br/>
     <br/>
-    2. In relazione alla predetta informativa, prendendo atto che la prestazione del consenso per attività estranee alla tutela del lavoratore o del pensionato non è obbligatoria e che, in caso di rifiuto,
-    non riceverei alcun pregiudizio,
+    2. In relazione alla predetta informativa, prendendo atto che la prestazione del consenso per attività estranee alla tutela del consumatore o dell’associato non è obbligatoria e che, in caso di rifiuto, non riceverei alcun pregiudizio,
     <br/>
     <br/>
     presto il mio consenso
@@ -187,12 +183,7 @@
     <% end %>
     <br/>
     <br/>
-    al trattamento dei miei dati per comunicazione sindacale da parte del sindacato e dei contitolari del trattamento per finalità più ampiamente indicate nell’informativa, anche a mezzo di strumenti tecnologici
-    avanzati quali fax, Email, SMS, MMS.
-    <br/>
-    <br/>
-    3. Nella consapevolezza che la prestazione del consenso alla comunicazione dei dati per attività estranee alla tutela sindacale, se pur previste dallo Statuto, non è
-    obbligatoria e che, in caso di rifiuto, non riceverei alcun pregiudizio,
+    al trattamento dei miei dati per finalità di informativa promozionale e/o istituzionale da parte di Sunia e dei co-titolari del trattamento come individuati nell’informativa, anche a mezzo di strumenti tecnologici avanzati quali fax, Email, PEC, SMS, MMS e altri strumenti di comunicazione avanzati (WhatsApp, Telegram, ecc.).
     <br/>
     <br/>
     presto il mio consenso
@@ -212,10 +203,7 @@
     <% end %>
     <br/>
     <br/>
-    alla comunicazione e al successivo trattamento dei miei dati personali comuni e particolari al Patronato Inca, ai CAAF CGIL SRL costituiti dalla CGIL, al Sunia, all’Auser e alla Federconsumatori e, comunque,
-    agli enti e alle persone giuridiche con o senza scopo di lucro delle quali si avvale l’associazione sindacale per il perseguimento dei propri scopi statutari o, comunque, con essa convenzionate o affiliate, o da
-    essa costituiti e/o promossi, affinché tali soggetti possano erogare servizi di tutela in qualsiasi ambito lavorativo, fiscale, contabile, previdenziale, assistenziale e consumeristico e trattare tali dati per
-    informarmi sui loro servizi di assistenza e tutela a mezzo posta cartacea e di strumenti tecnologici avanzati quali fax, SMS, MMS e Email.
+    alla comunicazione e al successivo trattamento dei miei dati personali comuni e particolari alla CGIL, al Patronato INCA, ai CAAF CGIL Srl costituiti dalla CGIL, all’AUSER e alla FEDERCONSUMATORI e, comunque, agli enti ed alle persone giuridiche con o senza scopo di lucro delle quali l’associazione si avvale per il perseguimento dei propri scopi statutari o, comunque, con essa convenzionate od affiliate, o da essa costituiti e/o promossi, ivi compresi i professionisti legali, fiscali e/o contabili incaricati di tutelarmi in sede amministrativa e/o giurisdizionale, anche affinché tali soggetti possano trattare tali dati per informazioni sui loro servizi di assistenza e tutela a mezzo posta cartacea e di strumenti tecnologici avanzati quali FAX, SMS, MMS e EMAIL.
     <br/>
     <br/>
     <br/>
@@ -226,63 +214,44 @@
     </span>
     <p style="page-break-after: always;">&nbsp;</p>
     <p style="page-break-before: always;">&nbsp;</p>
-    Titolare del trattamento, Contitolari, Responsabile della Protezione dei Dati.
-    Confederazione Generale Italiana del Lavoro con sede a Roma in Corso Italia n. 25 (PEC: organizzazione@pec.cgil.it): è il titolare del trattamento dei dati degli iscritti e dei soggetti coi quali ha contatti regolari.
-    Le singole associazioni sindacali CGIL (CGIL regionali, Camere del lavoro, Federazioni o categorie nazionali, regionali e territoriale) sono contitolari del trattamento. I loro riferimenti e dati di contatto sono
-    reperibili sul sito www.cgil.it/sedi/ Tali contitolari hanno stipulato tra loro un accordo di contitolarità il cui estratto è reperibile nella sezione privacy del sito www.cgil.it/contitolarita. il Responsabile per la
-    Protezione dei Dati potrà essere contattato all’indirizzo privacy@cgil.it
-    Finalità e basi giuridiche del trattamento.
-    I dati verranno acquisiti dall’interessato al momento della richiesta di iscrizione e/o, comunque, al primo contatto. I dati potranno essere acquisiti anche nel corso dei successivi contatti, anche da parte dei
-    Suoi familiari, del datore di lavoro e/o dell’ente previdenziale e/o assistenziale. I dati verranno raccolti e trattati:
+    Egregio Sig.ra/Sig.,
+    <br/>
+    in ottemperanza agli obblighi di cui all’art. 13 del Regolamento UE 2016/679 il  Sindacato Unitario Nazionale Inquilini e Assegnatari (di seguito anche “Sunia”, “titolare” o “associazione”) con la presente intende fornirLe ogni informazione utile per farLe comprendere le ragioni per le quali procede al trattamento dei suoi dati personali, sia per evidenziarLe le diverse possibilità riconosciute per intervenire sullo stesso affinché non subisca una lesione alle libertà fondamentali, che devono essere contemperate con l’esplicazione della libertà associativa.
     <br/>
     <br/>
-    <strong>a)</strong> per adempiere agli obblighi sindacali e, comunque, nell’ambito dell’attività sindacale per il perseguimento delle finalità statutarie, quindi sulla base della necessità di adempiere agli obblighi e alle
-    prerogative statuarie, con le garanzie previste dal sindacato e pubblicate nella sezione privacy del sito www.cgil.it. Laddove il trattamento comporti la comunicazione dei dati, gli stessi verranno comunicati
-    solo previo consenso dell’iscritto;
+    <strong>1.&emsp;Finalità, modalità e base giuridica del trattamento dei dati personali.</strong>
+    <br/>
+    Sunia procederà al trattamento dei suoi dati personali (anche, in taluni casi, di quelli “particolari”, ovvero di quelli relativi all'origine razziale o etnica, alle opinioni politiche, alle convinzioni religiose o filosofiche, all’appartenenza sindacale, alla salute, alla vita e orientamento sessuale, nonché, nel caso, i genetici e biometrici) per l’adempimento degli scopi statutari e, quindi, allo scopo di eseguire il contratto associativo o, comunque, per adempiere all’incarico ricevuto per la richiesta di tutela e assistenza, nei limiti delle norme legislative e regolamentari in materia, compresi gli adempimenti per l’attestazione di rispondenza del contratto di locazione ai sensi art. 1 comma 8,2 comma 8 e 3 comma 5  DM Infrastrutture  e trasporti 16 gennaio 2017. I dati verranno trattati anche per finalità fiscali, contabili ed assicurative.
+    Il trattamento viene pertanto svolto per l’adempimento del contratto associativo o di altro contratto (es. mandato) del quale Lei è parte o, laddove abbia ad oggetto dati particolari, sulla base del suo espresso consenso, che potrà essere revocato in qualsiasi momento.
     <br/>
     <br/>
-    <strong>b)</strong> per adempiere ad obblighi legali, quindi sulla base della necessità di adempiere agli obblighi di legge o per motivi di interesse pubblico rilevante;
+    <strong>2.&emsp;Natura del conferimento dei dati e durata del trattamento.</strong>
+    <br/>
+    Il conferimento dei dati richiesti è assolutamente facoltativo. Qualora l’interessato rifiuti di conferire i dati anagrafici sarebbe impossibile perfezionare l’iscrizione all’associazione e/o il conferimento di qualsivoglia tipologia di incarico; laddove, invece, rifiuti di fornire altri dati non essenziali per l’iscrizione o per l’attività, potrebbe essere impossibile o particolarmente difficoltoso garantire all’iscritto il corretto perseguimento delle finalità associative, statutarie e/o istituzionali. 
+    I dati saranno comunque trattati per il tempo strettamente necessario all’adempimento delle predette finalità statutarie ed associative (normalmente coincidente con il periodo di iscrizione dell’interessato a Sunia) e, comunque, per i trattamenti subordinati al consenso, sino a quando l’interessato non lo revocherà.
+    I dati, tuttavia, laddove trattati esclusivamente per l’attività associativa, verranno cancellati decorsi dieci anni dalla risoluzione del rapporto associativo, mentre, se trattati per lo svolgimento delle finalità previste dal consenso eventualmente prestato, verranno cancellati decorsi sei mesi dall’esercizio del diritto di revoca del consenso. 
     <br/>
     <br/>
-    <strong>c)</strong> per consentire l’erogazione di altri servizi connessi alla tutela della persona in ambito lavorativo, fiscale, contabile, previdenziale, assistenziale e consumeristico, quindi sulla base della necessità di
-    adempiere agli obblighi e alle prerogative statuarie, con le garanzie previste dal sindacato e pubblicate nella sezione privacy del sito www.cgil.it oppure, laddove tali servizi vengano forniti da soggetti terzi,
-    sulla base del consenso;
+    <strong>3.&emsp;Ambito di comunicazione e diffusione dei dati.</strong>
+    <br/>
+    Al fine di adempiere correttamente agli scopi statutari ed associativi, o comunque per il perseguimento dell’incarico, i Suoi dati potrebbero essere trasmessi e comunicati ad altri soggetti quali, in particolare, organismi ed enti pubblici o privati ai quali la comunicazione sia necessaria per tali scopi (es. Agenzia delle Entrate, enti locali, autorità di p.s., autorità giudiziaria), e, in particolare, ai soggetti contro i quali ritiene di dover essere tutelato (es. proprietario o titolare di diritto reale dell’immobile).
+    I Suoi dati personali saranno inoltre resi noti a tutti i soggetti, siano essi persone fisiche o giuridiche, espressamente autorizzate al trattamento o designate quali responsabili del trattamento, come tali tenuti agli stessi obblighi di riservatezza che competono all’associazione e, comunque, espressamente istruiti sull’osservanza delle norme di sicurezza. 
+    I suoi dati personali saranno inoltre essere resi noti agli altri co-titolari del trattamento quali il Sunia nazionale, regionali e territoriali.
+    I suoi dati personali non saranno in nessun caso diffusi né trasferiti verso Paesi terzi.
     <br/>
     <br/>
-    <strong>d)</strong> per inviare comunicazioni istituzionali sulla propria attività e su quella degli enti, con o senza scopo di lucro, istituiti, costituiti o promossi dal sindacato per il perseguito delle medesime finalità, quindi sulla
-    base del consenso espresso dall’interessato;
+    <strong>4.&emsp;Diritti riconosciuti </strong>
+    <br/>
+    Sunia Le assicura l’esercizio dei diritti previsti dalla normativa vigente quali, in particolare, il diritto di accesso e, nei casi previsti, di rettifica, cancellazione e portabilità dei dati. Lei gode altresì del diritto di chiedere la limitazione del trattamento, opporsi allo stesso e/o revocare il consenso sul quale il trattamento si fondi, fermo restando la legittimità del trattamento effettuato prima della revoca stessa.
+    La legge attribuisce inoltre all’interessato il potere di proporre reclamo o segnalazione al Garante per la protezione dei dati, ovvero all’autorità di controllo dello Stato UE in cui risiede, in cui lavora o in cui è avvenuta la violazione. Per l’esercizio di tale facoltà l’interessato può reperire ogni informazione utile nel sito www.garanteprivacy.it.
+    I predetti diritti possono essere esercitati direttamente presso Sunia, ai dati di contatto sotto indicati al punto 5, alle strutture territoriali del medesimo Sunia, che può reperire nel sito internet http://www.sunia.it/sedi-regionali/, oppure al Responsabile per la Protezione dei dati designato (privacy@sunia.it).
     <br/>
     <br/>
-    <strong>e)</strong> per svolgere ricerche di natura statistica (solo con dati anonimi), quindi sulla base della necessità e volontà di procedere all’indagine statistica, rigorosamente su dati previamente trasformati in forma
-    anonima e pubblicati solo in forma aggregata.
-    Natura del conferimento e conseguenze in caso di rifiuto.
-    Il conferimento dei dati richiesti è facoltativo. Qualora l’interessato rifiuti di conferire i dati anagrafici sarebbe impossibile perfezionare l’iscrizione al sindacato e/o svolgere l’attività per la quale l’interessato si
-    è rivolto alla CGIL. Laddove rifiuti di fornire altri dati non essenziali per l’iscrizione o per l’attività, potrebbe essere impossibile o particolarmente difficoltoso garantire il corretto perseguimento delle finalità
-    sindacali o istituzionali.
-    Comunicazione, diffusione e trasferimento all’estero dei dati.
-    Al fine di adempiere agli obblighi statutari e/o sindacali, e comunque per il corretto esercizio della libertà sindacale e per la tutela dell’iscritto e degli altri soggetti tutelati, i dati potrebbero essere trasmessi e
-    comunicati, esclusivamente previo consenso, ad altri soggetti quali, in particolare, il datore di lavoro o ente pensionistico, ente bilaterale o enti paritetici contrattuali e/o enti pubblici verso i quali la
-    comunicazione è prevista dalla normativa.
-    I dati stessi potrebbero inoltre essere comunicati, sempre previo consenso, e per consentire di usufruire dei servizi offerti, o comunque per informare sui medesimi servizi, al Patronato Inca e ai CAAF CGIL
-    costituiti dal sindacato, all’AUSER, al SUNIA o alla Federconsumatori, ad associazioni costituite o promosse dalla CGIL o, comunque, a enti o persone giuridiche con o senza scopo di lucro, costituiti o promossi
-    dalla CGIL dei quali il sindacato si avvale per il perseguimento dei propri scopi.
-    I dati trattati saranno resi noti a tutti i soggetti, siano essi persone fisiche o giuridiche, espressamente autorizzate al trattamento o designate quali responsabili del trattamento, come tali tenuti agli stessi
-    obblighi di riservatezza che competono al sindacato e, comunque, espressamente istruiti sull’osservanza delle norme di sicurezza.
-    I suoi dati personali potranno essere diffusi solo laddove siano stati resi pubblici dall’interessato e, comunque, esclusivamente nel caso in cui l’interessato abbia assunto cariche dirigenziali sindacali.
-    I dati non saranno trasferiti in Paesi extra UE o verso organizzazioni internazionali, salvo che non vi sia una decisione di adeguatezza. In altri casi, e solo laddove consentito dalla normativa vigente, i dati
-    potrebbero essere trasferiti all’estero solo laddove previamente pseudoanonimizzati o criptati.
-    Conservazione dei dati.
-    I dati saranno trattati per il tempo strettamente necessario all’adempimento delle predette finalità sindacali (normalmente coincidente con il periodo di iscrizione al sindacato e, successivamente, per la
-    durata massima di dieci anni). Per i trattamenti subordinati al consenso i dati saranno trattati sino a quando l’interessato non lo revocherà.
-    I dati trattati per l’attività sindacale verranno cancellati, terminato il rapporto associativo, decorso il periodo di tempo per il quale la legge vigente prescrive la conservazione degli atti e dei documenti
-    contenenti i dati stessi mentre, se trattati per lo svolgimento delle finalità previste dal consenso prestato, verranno cancellati immediatamente dopo l’esercizio del diritto di revoca.
-    Diritti dell’interessato e reclamo all’autorità di controllo.
-    L’interessato, ai sensi di legge, gode del diritto di chiedere l’accesso ai dati e al trattamento e, nei casi previsti, la rettifica, la cancellazione e la portabilità dei dati. L’interessato gode altresì del diritto di
-    chiedere la limitazione del trattamento, opporsi allo stesso e/o revocare il consenso sul quale il trattamento si fondi. L’interessato gode altresì del diritto di proporre reclamo o segnalazione all’autorità di
-    controllo dello Stato UE in cui risiede, in cui lavora o in cui è avvenuta la violazione che, per l’Italia, è il Garante per la protezione dei dati, per il quale può reperire ogni informazione utile nel sito
-    www.garanteprivacy.it. I predetti diritti possono essere esercitati direttamente presso le strutture territoriali della CGIL, che può reperire nel sito internet www.cgil.it/sedi, oppure scrivendo al Responsabile
-    per la Protezione dei Dati (privacy@cgil.it).
-    Cons
+    <strong>5.&emsp;Titolare del trattamento. Data Protection Officer. </strong>
+    <br/>
+    Il Sunia, federazione territoriale di Pordenone con sede a Pordenone in Via:San valentino 30 Tel:0434/545111,
+    <br/>
+    e-mail:sunia.pordenone@fvg.cgil.it è il titolare del trattamento dei dati personali degli associati e dei soggetti che hanno contatti regolare con lo stesso E’ co-titolare del trattamento stesso il Sunia nazionale, con sede a Roma in Via Gioberti 54, Email: infp@sunia.it che ha designato il Responsabile per la Protezione dei Dati che potrà essere contattato tramite email all’indirizzo privacy@sunia.it.
   </div>
 </div>
 </div>

@@ -13,27 +13,29 @@
         <div class="modal-body p-3">
           <div class='row mb-3'>
             <div class="col">
-              <div id="<%= dom_id @landlord %>" class="scaffold_record">
-                <h5 class='text-dark'>
-                  <small class='text-primary'>
-                    <%= @landlord.code %>
-                  </small>
-                  &emsp;
-                  <small class="text-primary">
-                    <strong class='text-detail'>
-                      <%= @landlord.first_name %>
-                      &nbsp;
-                      <%= @landlord.last_name %>
-                    </strong>
-                    &nbsp;
-                    <span class='text-primary'>
-                      <%= @landlord.fiscal_code %>
-                      &nbsp;
-                    </span>
+              <div class='card card-detail-secondary shadow'>
+                <div id="<%= dom_id @landlord %>" class="scaffold_record">
+                  <h5 class='text-dark'>
+                    <small class='text-primary'>
+                      <%= @landlord.code %>
+                    </small>
                     &emsp;
-                    <%= landlord_type_icon(@landlord) %>
-                  </small>
-                </h5>
+                    <small class="text-primary">
+                      <strong class='text-detail'>
+                        <%= @landlord.first_name %>
+                        &nbsp;
+                        <%= @landlord.last_name %>
+                      </strong>
+                      &nbsp;
+                      <span class='text-primary'>
+                        <%= @landlord.fiscal_code %>
+                        &nbsp;
+                      </span>
+                      &emsp;
+                      <%= landlord_type_icon(@landlord) %>
+                    </small>
+                  </h5>
+                </div>
               </div>
             </div>
           </div>
@@ -122,7 +124,7 @@
               <div class='card card-detail-secondary shadow'>
                 <div class='row'>
                   <div class='col'>
-                    <%= image_tag("building_index_logo.svg", size: '150x34', class: "img-fluid") %>
+                    <%= image_tag("building_index_logo.png", size: '150x34', class: "img-fluid") %>
                     <br/>
                     <table class='table'>
                       <thead>
@@ -148,27 +150,27 @@
                         <% @buildings.each do |building| %>
                           <tr>
                             <td>
-                              <small class="text-warning">
+                              <small class="text-dark">
                                 <%= building.address %>
                               </small>
                             </td>
                             <td>
-                              <small class="text-warning">
+                              <small class="text-dark">
                                 <%= building.house_number %>
                               </small>
                             </td>
                             <td>
-                              <small class="text-warning">
+                              <small class="text-dark">
                                 <%= building.zip %>
                               </small>
                             </td>
                             <td>
-                              <small class="text-warning">
+                              <small class="text-dark">
                                 <%= building.city %>
                               </small>
                             </td>
                             <td>
-                              <small class="text-warning">
+                              <small class="text-dark">
                                 <%= building.province %>
                               </small>
                             </td>
